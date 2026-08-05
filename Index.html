@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A single, searchable home for ARC workplace resources.">
+    <title>LRC Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="bookmarks-data.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#resource-grid">Skip to resources</a>
+
+    <header class="site-header">
+        <a class="brand" href="#" aria-label="LRC Hub home">
+            <span class="brand-mark">
+                <img src="logo.svg" alt="">
+            </span>
+            <span>
+                <strong>Learning Resource Center</strong>
+                <small>Hub</small>
+            </span>
+        </a>
+        <div class="header-actions">
+            <span class="resource-total" id="resource-total"></span>
+            <button class="view-button" id="view-toggle" type="button" aria-label="Switch to compact view" aria-pressed="false">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h6v6H4zm10 0h6v6h-6zM4 15h6v4H4zm10 0h6v4h-6z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="workspace" aria-label="Resource directory">
+            <nav class="categories" id="categories" aria-label="Resource categories"></nav>
+
+            <div class="directory">
+                <div class="directory-heading">
+                    <div>
+                        <p class="section-kicker">Directory</p>
+                        <h1 id="section-title">Quick Links</h1>
+                    </div>
+                    <p id="result-count" aria-live="polite"></p>
+                </div>
+
+                <form class="search" role="search" id="search-form">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+                    <label class="visually-hidden" for="resource-search">Search resources</label>
+                    <input id="resource-search" type="search" placeholder="Search links, tools, and documents..." autocomplete="off">
+                    <kbd>/</kbd>
+                    <button type="button" id="clear-search" aria-label="Clear search">×</button>
+                </form>
+
+                <div class="resource-grid" id="resource-grid"></div>
+
+                <div class="empty-state" id="empty-state" hidden>
+                    <span>0</span>
+                    <h2>No resources found</h2>
+                    <p>Try another search or browse a different category.</p>
+                    <button type="button" id="reset-filters">Show quick links</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>LRC Hub</p>
+        <p>American River College · Los Rios Community College District</p>
+    </footer>
+</body>
+<!--
+AI / CODEX UPDATE PROMPTS
+
+Use these prompts in Codex or another coding assistant to make simple hub updates.
+
+GENERAL TEMPLATE
+
+Update this resource hub based on my instructions below. Only edit the
+bookmark/resource data needed for the request. Preserve the existing page
+design, styling, search, layout, and functionality. Do not redesign the page
+or modify unrelated links. Afterward, tell me exactly what changed.
+
+Requested change: [DESCRIBE THE CHANGE]
+
+EXAMPLE PROMPTS
+
+1. Rename the "G/E" section to "General Education." Do not change anything else.
+
+2. Change the link titled "Calendar" to [NEW URL]. Keep its current title and section.
+
+3. Change the title "Us06Web" to "Zoom Meetings." Do not change its URL.
+
+4. Add a link titled [TITLE] with the URL [URL] to the "Quick Links" section.
+
+5. Add a link titled [TITLE] with the URL [URL] under the "Beacon" section.
+
+6. Remove the link titled [TITLE]. Do not remove or modify other links.
+
+7. Move the link titled [TITLE] from "Meetings" to "Beacon."
+
+8. Create a new section called [SECTION NAME] and add this link to it:
+   [TITLE], [URL].
+
+9. Rename the section [OLD NAME] to [NEW NAME] and keep all its existing links.
+
+10. Remove the section [SECTION NAME] and all links inside it. Do not change
+    the other sections.
+
+11. Add a subsection called [SUBSECTION NAME] under "Beacon."
+
+12. Move [LINK TITLE] into the [SUBSECTION NAME] subsection under Beacon.
+
+13. Update all links and section titles using the attached bookmark HTML file.
+    Preserve the current page design.
+
+14. Check the hub for duplicate links. List them for me, but do not remove anything.
+
+15. Check for links with missing titles or invalid URL formats. Fix only the
+    missing titles and report what changed.
+
+16. Sort the links inside [SECTION NAME] alphabetically. Do not reorder the sections.
+
+17. Put [LINK TITLE] at the top of the [SECTION NAME] section.
+
+18. Undo the last link or title change you made. Do not undo unrelated changes.
+
+USEFUL SAFETY INSTRUCTIONS
+
+Do not change anything else.
+Preserve the current design.
+Only edit bookmarks-data.js unless another file must be changed.
+Show me which files you changed.
+Verify that the link exists only once.
+Ask me before deleting an entire section.
+-->
+</html>
