@@ -217,9 +217,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .category-group-label {
-    margin: 25px 13px 9px;
-    color: #111111;
-    font: 700 12px/1.2 "Manrope", sans-serif;
+    margin: 25px 0 10px;
+    padding: 10px 13px;
+    color: white;
+    background: var(--navy);
+    border-radius: 7px;
+    font: 800 12px/1.2 "Manrope", sans-serif;
     letter-spacing: .13em;
     text-transform: uppercase;
 }
@@ -553,6 +556,7 @@ footer p { margin: 0; }
     .categories::-webkit-scrollbar { display: none; }
     .category-group-label {
         margin: 0 4px 0 16px;
+        padding: 9px 12px;
         align-self: center;
     }
     .category-group-label:first-child { margin-left: 0; }
