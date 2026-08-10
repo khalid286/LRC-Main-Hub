@@ -146,6 +146,8 @@ document.addEventListener("DOMContentLoaded", () => {
         categories.querySelectorAll(".category-button").forEach(button => {
             button.addEventListener("click", () => {
                 activeCategory = button.dataset.category;
+                query = "";
+                search.value = "";
                 buildCategories();
                 render();
             });
