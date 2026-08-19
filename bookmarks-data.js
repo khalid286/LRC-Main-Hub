@@ -270,6 +270,12 @@ window.BOOKMARKS = [
     "domain": "drive.google.com"
   },
   {
+    "title": "2026-27 LRC Budgets",
+    "url": "https://docs.google.com/spreadsheets/d/1TXl3EQm7EUS6_3gAu3_LvFOHFiC9htDjBCoG5jCA8Gs/edit?gid=0#gid=0",
+    "category": "Beacon",
+    "domain": "docs.google.com"
+  },
+  {
     "title": "Find Beacon Sessions",
     "url": "https://calendar.google.com/calendar/u/0/embed?ctz=America%2FLos_Angeles&pli=1&src=c_3b98bccaaa60395fafb259d30072d7fa8d69c1503ed373402c4312f448f94594%40group.calendar.google.com",
     "category": "Beacon / Student Links",
