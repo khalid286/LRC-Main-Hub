@@ -264,6 +264,12 @@ window.BOOKMARKS = [
     "domain": "arc.losrios.edu"
   },
   {
+    "title": "Beacon Drive",
+    "url": "https://drive.google.com/drive/folders/0AFOao-d5dJO-Uk9PVA",
+    "category": "Beacon",
+    "domain": "drive.google.com"
+  },
+  {
     "title": "Find Beacon Sessions",
     "url": "https://calendar.google.com/calendar/u/0/embed?ctz=America%2FLos_Angeles&pli=1&src=c_3b98bccaaa60395fafb259d30072d7fa8d69c1503ed373402c4312f448f94594%40group.calendar.google.com",
     "category": "Beacon / Student Links",
@@ -577,4 +583,3 @@ window.BOOKMARKS = [
     "description": "1 beverage and 1 snack machine"
   }
 ];
-
