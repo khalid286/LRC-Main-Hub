@@ -96,6 +96,12 @@ window.BOOKMARKS = [
     "domain": "docs.google.com"
   },
   {
+    "title": "Beacon Drive",
+    "url": "https://drive.google.com/drive/folders/0AFOao-d5dJO-Uk9PVA",
+    "category": "Beacon",
+    "domain": "drive.google.com"
+  },
+  {
     "title": "Beacon Attendance Tracking.docx - Google Docs",
     "url": "https://docs.google.com/document/d/1vWjIHJYS-HzrpcMayRNPinTKoOduCktF/edit",
     "category": "Beacon / SI Leader Forms",
@@ -577,4 +583,3 @@ window.BOOKMARKS = [
     "description": "1 beverage and 1 snack machine"
   }
 ];
-
