@@ -1,0 +1,5 @@
+LRC Hub AI write test
+
+If you can see this file in GitHub, the backend successfully created it.
+
+Created by the LRC Hub AI GitHub App.
