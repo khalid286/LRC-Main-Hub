@@ -589,7 +589,7 @@ window.BOOKMARKS = [
     "description": "1 beverage and 1 snack machine"
   },
   {
-    "title": "1- Aug 25th - Sep 24th",
+    "title": "Pay Period 1",
     "url": "https://docs.google.com/spreadsheets/d/1rs47WmEuYmsq0D_AwCvfE6UKhs464M1kqJiFuuJFSts/edit?gid=494602454#gid=494602454",
     "category": "Beacon / Worksheet/Timesheet",
     "domain": "docs.google.com"
