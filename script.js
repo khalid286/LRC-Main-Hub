@@ -59,37 +59,52 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const categoryOrder = [
-        "Quick Links", "Favorites", "Main Tutoring Pages", "Scheduling & Student Tools",
-        "Related LRC Resources", "Beacon",
-        "Beacon / Student Links", "Beacon / SI Leader Forms",
-        "Beacon / Worksheet/Timesheet", "Beacon / Group Requests Forms",
-        "Beacon / Email Templates", "Beacon / Hourly Formulas",
-        "Beacon / Hiring", "General Tutoring", "Rooms", "ARC Home", "ARC Book Store",
-        "Campus Hours", "HomeBases", "Vending Machines"
-    ];
+    "Quick Links",
+    "Favorites",
+    "Main Tutoring Pages",
+    "Scheduling & Student Tools",
+    "Related LRC Resources",
+    "Beacon",
+    "Beacon / Student Links",
+    "Beacon / SI Leader Forms",
+    "Beacon / Worksheet/Timesheet",
+    "Beacon / Group Requests Forms",
+    "Beacon / Email Templates",
+    "Beacon / Hourly Formulas",
+    "Beacon / Hiring",
+    "General Tutoring",
+    "Rooms",
+    "Staff Contact Info",
+    "ARC Home",
+    "ARC Book Store",
+    "Campus Hours",
+    "HomeBases",
+    "Vending Machines"
+];
 
     const categoryGroups = {
-        "Quick Links": "Essentials",
-        "Favorites": "Essentials",
-        "Main Tutoring Pages": "Tutoring",
-        "Scheduling & Student Tools": "Tutoring",
-        "Related LRC Resources": "Tutoring",
-        "Beacon": "Beacon Program",
-        "Beacon / Student Links": "Beacon Program",
-        "Beacon / SI Leader Forms": "Beacon Program",
-        "Beacon / Worksheet/Timesheet": "Beacon Program",
-        "Beacon / Group Requests Forms": "Beacon Program",
-        "Beacon / Email Templates": "Beacon Program",
-        "Beacon / Hourly Formulas": "Beacon Program",
-        "Beacon / Hiring": "Beacon Program",
-        "General Tutoring": "Administration",
-        "Rooms": "Administration",
-        "ARC Home": "Campus",
-        "ARC Book Store": "Campus",
-        "Campus Hours": "Campus",
-        "HomeBases": "Campus",
-        "Vending Machines": "Campus"
-    };
+    "Quick Links": "Essentials",
+    "Favorites": "Essentials",
+    "Main Tutoring Pages": "Tutoring",
+    "Scheduling & Student Tools": "Tutoring",
+    "Related LRC Resources": "Tutoring",
+    "Beacon": "Beacon Program",
+    "Beacon / Student Links": "Beacon Program",
+    "Beacon / SI Leader Forms": "Beacon Program",
+    "Beacon / Worksheet/Timesheet": "Beacon Program",
+    "Beacon / Group Requests Forms": "Beacon Program",
+    "Beacon / Email Templates": "Beacon Program",
+    "Beacon / Hourly Formulas": "Beacon Program",
+    "Beacon / Hiring": "Beacon Program",
+    "General Tutoring": "Administration",
+    "Rooms": "Administration",
+    "ARC Home": "Campus",
+    "ARC Book Store": "Campus",
+    "Campus Hours": "Campus",
+    "HomeBases": "Campus",
+    "Vending Machines": "Campus",
+    "Staff Contact Info": "Administration"
+};
 
     const counts = resources.reduce((map, item) => {
         map[item.category] = (map[item.category] || 0) + 1;
