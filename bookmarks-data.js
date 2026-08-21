@@ -593,23 +593,5 @@ window.BOOKMARKS = [
     "url": "https://docs.google.com/spreadsheets/d/1rs47WmEuYmsq0D_AwCvfE6UKhs464M1kqJiFuuJFSts/edit?gid=494602454#gid=494602454",
     "category": "Beacon / Worksheet/Timesheet",
     "domain": "docs.google.com"
-  },
-  {
-    "title": "Mohammad Khalid Daneshwar",
-    "url": "",
-    "category": "Staff Contact Info",
-    "domain": "",
-    "phone": "916-547-9502",
-    "email": "DaneshM@arc.losrios.edu",
-    "type": "contact"
-  },
-  {
-    "title": "Mikenna Modesto",
-    "phone": "916-548-9520",
-    "email": "ModestM@arc.losrios.edu",
-    "url": "",
-    "category": "Staff Contact Info",
-    "domain": "",
-    "type": "contact"
   }
 ];
