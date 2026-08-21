@@ -593,5 +593,11 @@ window.BOOKMARKS = [
     "url": "https://docs.google.com/spreadsheets/d/1rs47WmEuYmsq0D_AwCvfE6UKhs464M1kqJiFuuJFSts/edit?gid=494602454#gid=494602454",
     "category": "Beacon / Worksheet/Timesheet",
     "domain": "docs.google.com"
+  },
+  {
+    "title": "Mohammad Khalid Daneshwar | 916-547-9502 | DaneshM@arc.losrios.edu",
+    "url": "",
+    "category": "Staff Contact Info",
+    "domain": ""
   }
 ];
