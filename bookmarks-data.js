@@ -595,9 +595,12 @@ window.BOOKMARKS = [
     "domain": "docs.google.com"
   },
   {
-    "title": "Mohammad Khalid Daneshwar | 916-547-9502 | DaneshM@arc.losrios.edu",
+    "title": "Mohammad Khalid Daneshwar",
     "url": "",
     "category": "Staff Contact Info",
-    "domain": ""
+    "domain": "",
+    "phone": "916-547-9502",
+    "email": "DaneshM@arc.losrios.edu",
+    "type": "contact"
   }
 ];
