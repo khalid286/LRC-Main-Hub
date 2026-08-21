@@ -602,5 +602,14 @@ window.BOOKMARKS = [
     "phone": "916-547-9502",
     "email": "DaneshM@arc.losrios.edu",
     "type": "contact"
+  },
+  {
+    "title": "Mikenna Modesto",
+    "phone": "916-548-9520",
+    "email": "ModestM@arc.losrios.edu",
+    "url": "",
+    "category": "Staff Contact Info",
+    "domain": "",
+    "type": "contact"
   }
 ];
