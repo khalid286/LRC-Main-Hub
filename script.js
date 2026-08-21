@@ -196,25 +196,106 @@ document.addEventListener("DOMContentLoaded", () => {
         emptyState.hidden = filtered.length !== 0;
         grid.hidden = filtered.length === 0;
 
-        const cardMarkup = item => {
-            const key = favoriteKey(item);
-            const isFavorite = favorites.has(key);
-            const openingTag = item.url
-                ? `<a class="resource-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(item.title)}">`
-                : `<div class="resource-link">`;
-            const closingTag = item.url ? "</a>" : "</div>";
-            return `<article class="resource-card${item.url ? "" : " information-card"}">
-                ${openingTag}
-                <div class="title-row">
-                    <span class="site-icon" aria-hidden="true">${linkIcon(item)}</span>
-                    <h3>${escapeHtml(item.title)}</h3>
+const cardMarkup = item => {
+
+    // ----------------------------------------------
+    // CONTACT
+    // ----------------------------------------------
+
+    if (item.type === "contact") {
+
+        return `
+            <article class="contact-card">
+
+                <div class="contact-info">
+
+                    <h3>
+                        ${escapeHtml(item.title)}
+                    </h3>
+
+                    ${item.phone ? `
+                        <p class="contact-phone">
+                            ${escapeHtml(item.phone)}
+                        </p>
+                    ` : ""}
+
+                    ${item.email ? `
+                        <p class="contact-email">
+                            ${escapeHtml(item.email)}
+                        </p>
+                    ` : ""}
+
                 </div>
-                ${query ? `<span class="card-category">${escapeHtml(item.category)}</span>` : ""}
-                ${item.description ? `<p>${escapeHtml(item.description)}</p>` : ""}
-                ${closingTag}
-                <button class="favorite-button${isFavorite ? " is-favorite" : ""}" type="button" data-favorite-key="${escapeHtml(key)}" aria-label="${isFavorite ? "Remove from" : "Add to"} Favorites" aria-pressed="${isFavorite}">&#9733;</button>
-            </article>`;
-        };
+
+            </article>
+        `;
+    }
+
+
+    // ----------------------------------------------
+    // NORMAL RESOURCE
+    // ----------------------------------------------
+
+    const key =
+        favoriteKey(item);
+
+    const isFavorite =
+        favorites.has(key);
+
+    const openingTag =
+        item.url
+            ? `<a class="resource-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(item.title)}">`
+            : `<div class="resource-link">`;
+
+    const closingTag =
+        item.url
+            ? "</a>"
+            : "</div>";
+
+    return `
+        <article class="resource-card${item.url ? "" : " information-card"}">
+
+            ${openingTag}
+
+            <div class="title-row">
+
+                <span class="site-icon" aria-hidden="true">
+                    ${linkIcon(item)}
+                </span>
+
+                <h3>
+                    ${escapeHtml(item.title)}
+                </h3>
+
+            </div>
+
+            ${query ? `
+                <span class="card-category">
+                    ${escapeHtml(item.category)}
+                </span>
+            ` : ""}
+
+            ${item.description ? `
+                <p>
+                    ${escapeHtml(item.description)}
+                </p>
+            ` : ""}
+
+            ${closingTag}
+
+            <button
+                class="favorite-button${isFavorite ? " is-favorite" : ""}"
+                type="button"
+                data-favorite-key="${escapeHtml(key)}"
+                aria-label="${isFavorite ? "Remove from" : "Add to"} Favorites"
+                aria-pressed="${isFavorite}"
+            >
+                &#9733;
+            </button>
+
+        </article>
+    `;
+};
 
         const groupedCampusHours = activeCategory === "Campus Hours" && !query;
         grid.classList.toggle("campus-groups", groupedCampusHours);
