@@ -199,18 +199,31 @@ document.addEventListener("DOMContentLoaded", () => {
             </button>`);
         primaryNavigation.innerHTML = primaryButtons.join("");
 
-        primaryNavigation.querySelectorAll(".primary-nav-button:not(.my-links-open)").forEach(button => {
-            button.addEventListener("click", () => {
-                activeGroup = button.dataset.group;
-                activeCategory = categoryNames.find(name => (categoryGroups[name] || "Other") === activeGroup) || activeCategory;
-                query = "";
-                search.value = "";
-                document.dispatchEvent(new CustomEvent("hub:show-directory"));
-                buildCategories();
-                render();
-            });
+primaryNavigation
+    .querySelectorAll(".primary-nav-button:not(.my-links-open)")
+    .forEach(button => {
+        button.addEventListener("click", () => {
+            activeGroup = button.dataset.group;
+
+            activeCategory =
+                categoryNames.find(
+                    name =>
+                        (categoryGroups[name] || "Other") === activeGroup &&
+                        !name.includes(" / ")
+                ) || activeCategory;
+
+            query = "";
+            search.value = "";
+
+            document.dispatchEvent(
+                new CustomEvent("hub:show-directory")
+            );
+
+            buildCategories();
+            render();
         });
-    }
+    });
+}
 
     function filteredResources() {
         const terms = query.toLocaleLowerCase().split(/\s+/).filter(Boolean);
