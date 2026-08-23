@@ -38,6 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const resources = [...bookmarkResources, ...additionalCampusHours];
     const grid = document.getElementById("resource-grid");
     const categories = document.getElementById("categories");
+    const primaryNavigation = document.getElementById("primary-navigation");
+    const sidebarTitle = document.getElementById("sidebar-title");
     const search = document.getElementById("resource-search");
     const searchForm = document.getElementById("search-form");
     const clearSearch = document.getElementById("clear-search");
@@ -111,11 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return map;
     }, {});
 
-    const retainedEmptyCategories = new Set(["Beacon / Worksheet/Timesheet"]);
-    const categoryNames = categoryOrder.filter(name => name === "Favorites" || counts[name] || retainedEmptyCategories.has(name));
-    Object.keys(counts).forEach(name => {
-        if (!categoryNames.includes(name)) categoryNames.push(name);
-    });
+        const categoryNames = [...categoryOrder];
+
+        Object.keys(counts).forEach(name => {
+            if (!categoryNames.includes(name)) {
+                categoryNames.push(name);
+            }
+        });
 
     const escapeHtml = value => String(value)
         .replaceAll("&", "&amp;")
@@ -138,35 +142,31 @@ document.addEventListener("DOMContentLoaded", () => {
         return icon('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>');
     };
 
+    const groupOrder = ["Essentials", "Tutoring", "Beacon Program", "Administration", "Campus", "Other"];
+    const groupLabels = { "Tutoring": "General Tutoring", "Beacon Program": "Beacon" };
+    let activeGroup = categoryGroups[activeCategory] || "Essentials";
+
     function buildCategories() {
-        const entries = categoryNames.map(name => [name, name === "Favorites" ? favorites.size : (counts[name] || 0)]);
-        let previousGroup = "";
+        buildPrimaryNavigation();
+        const entries = categoryNames
+            .filter(name => (categoryGroups[name] || "Other") === activeGroup)
+            .map(name => [name, name === "Favorites" ? favorites.size : (counts[name] || 0)]);
+        sidebarTitle.textContent = groupLabels[activeGroup] || activeGroup;
         categories.innerHTML = entries.map(([name, count]) => {
-            const group = categoryGroups[name] || "Other";
-            const groupHeading = group !== previousGroup
-                ? `<p class="category-group-label">${escapeHtml(group)}</p>`
-                : "";
-            previousGroup = group;
             const isBeaconSubcategory = name.startsWith("Beacon / ");
             const label = name === "Beacon / SI Leader Forms"
                 ? "Beacon SI Leader Forms"
                 : isBeaconSubcategory ? name.replace("Beacon / ", "") : name;
-            const myLinksButton = name === "Favorites" ? `
-            <button class="category-button subcategory-button my-links-open" id="my-links-open" type="button">
-                <span>My Links</span>
-                <span class="category-count" id="my-links-count">0</span>
-            </button>` : "";
-            return `${groupHeading}
-            <button class="category-button${name === activeCategory ? " active" : ""}${isBeaconSubcategory ? " subcategory-button" : ""}" type="button" data-category="${escapeHtml(name)}">
+            return `<button class="category-button${name === activeCategory ? " active" : ""}${isBeaconSubcategory ? " subcategory-button" : ""}" type="button" data-category="${escapeHtml(name)}">
                 <span>${escapeHtml(label)}</span>
                 <span class="category-count">${count}</span>
             </button>
-            ${myLinksButton}
         `}).join("");
 
-        categories.querySelectorAll(".category-button:not(.my-links-open)").forEach(button => {
+        categories.querySelectorAll(".category-button").forEach(button => {
             button.addEventListener("click", () => {
                 activeCategory = button.dataset.category;
+                activeGroup = categoryGroups[activeCategory] || "Other";
                 query = "";
                 search.value = "";
                 buildCategories();
@@ -174,6 +174,32 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
         document.dispatchEvent(new CustomEvent("hub:categories-rendered"));
+    }
+
+    function buildPrimaryNavigation() {
+        const availableGroups = groupOrder.filter(group => categoryNames.some(name => (categoryGroups[name] || "Other") === group));
+        const primaryButtons = availableGroups.map(group => `
+            <button class="primary-nav-button${group === activeGroup ? " active" : ""}" type="button" data-group="${escapeHtml(group)}" aria-pressed="${group === activeGroup}">
+                ${escapeHtml(groupLabels[group] || group)}
+            </button>
+        `);
+        primaryButtons.splice(1, 0, `
+            <button class="primary-nav-button my-links-open" id="my-links-open" type="button">
+                My Links <span class="primary-nav-count" id="my-links-count">0</span>
+            </button>`);
+        primaryNavigation.innerHTML = primaryButtons.join("");
+
+        primaryNavigation.querySelectorAll(".primary-nav-button:not(.my-links-open)").forEach(button => {
+            button.addEventListener("click", () => {
+                activeGroup = button.dataset.group;
+                activeCategory = categoryNames.find(name => (categoryGroups[name] || "Other") === activeGroup) || activeCategory;
+                query = "";
+                search.value = "";
+                document.dispatchEvent(new CustomEvent("hub:show-directory"));
+                buildCategories();
+                render();
+            });
+        });
     }
 
     function filteredResources() {
@@ -356,6 +382,7 @@ const cardMarkup = item => {
 
     resetFilters.addEventListener("click", () => {
         activeCategory = "Quick Links";
+        activeGroup = "Essentials";
         query = "";
         search.value = "";
         buildCategories();

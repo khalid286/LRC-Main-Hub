@@ -194,10 +194,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.getElementById("categories").addEventListener("click", event => {
+        if (event.target.closest(".category-button")) hidePanel();
+    });
+    document.getElementById("primary-navigation").addEventListener("click", event => {
         if (event.target.closest(".my-links-open")) showPanel();
-        else if (event.target.closest(".category-button")) hidePanel();
     });
     document.addEventListener("hub:categories-rendered", updateNav);
+    document.addEventListener("hub:show-directory", hidePanel);
     importButton.addEventListener("click", () => fileInput.click());
     addButton.addEventListener("click", () => openEditor());
     cancelButton.addEventListener("click", closeEditor);

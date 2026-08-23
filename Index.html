@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260817-5">
+    <link rel="stylesheet" href="style.css?v=20260823-7">
     <script defer src="bookmarks-data.js?v=20260805-8"></script>
     <script defer src="campus-hours-data.js?v=20260805-3"></script>
-    <script defer src="script.js?v=20260817-3"></script>
-    <script defer src="my-links.js?v=20260817-5"></script>
+    <script defer src="script.js?v=20260823-4"></script>
+    <script defer src="my-links.js?v=20260823-2"></script>
 </head>
 <body>
     <a class="skip-link" href="#resource-grid">Skip to resources</a>
@@ -36,7 +36,10 @@
     </header>
     <main>
         <section class="workspace" aria-label="Resource directory">
-            <aside class="sidebar">
+            <nav class="primary-navigation" id="primary-navigation" aria-label="Main sections"></nav>
+
+            <aside class="sidebar" aria-label="Selected section navigation">
+                <p class="sidebar-title" id="sidebar-title"></p>
                 <nav class="categories" id="categories" aria-label="Resource categories"></nav>
             </aside>
 
