@@ -108,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "HomeBases": "Campus",
     "Vending Machines": "Campus",
     "Staff Contact Info": "Administration",
-    "Training": "Test Area",
-    "Training / Guides": "Test Area"
+    "Training": "Training Area",
+    "Training / Guides": "Training Area"
 };
 
     const counts = resources.reduce((map, item) => {
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Essentials",
     "Tutoring",
     "Beacon Program",
-    "Test Area",
+    "Training Area",
     "Administration",
     "Campus",
     "Other"
