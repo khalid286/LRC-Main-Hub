@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Beacon / Email Templates",
     "Beacon / Hourly Formulas",
     "Beacon / Hiring",
+    "Training",
     "General Tutoring",
     "Rooms",
     "Staff Contact Info",
@@ -105,7 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "Campus Hours": "Campus",
     "HomeBases": "Campus",
     "Vending Machines": "Campus",
-    "Staff Contact Info": "Administration"
+    "Staff Contact Info": "Administration",
+    "Training": "Beacon Program"
 };
 
     const counts = resources.reduce((map, item) => {
