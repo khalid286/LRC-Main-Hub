@@ -90,14 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
     "Main Tutoring Pages": "Tutoring",
     "Scheduling & Student Tools": "Tutoring",
     "Related LRC Resources": "Tutoring",
-    "Beacon": "Beacon Program",
-    "Beacon / Student Links": "Beacon Program",
-    "Beacon / SI Leader Forms": "Beacon Program",
-    "Beacon / Worksheet/Timesheet": "Beacon Program",
-    "Beacon / Group Requests Forms": "Beacon Program",
-    "Beacon / Email Templates": "Beacon Program",
-    "Beacon / Hourly Formulas": "Beacon Program",
-    "Beacon / Hiring": "Beacon Program",
+    "Beacon": "Test",
+    "Beacon / Student Links": "Test",
+    "Beacon / SI Leader Forms": "Test",
+    "Beacon / Worksheet/Timesheet": "Test",
+    "Beacon / Group Requests Forms": "Test",
+    "Beacon / Email Templates": "Test",
+    "Beacon / Hourly Formulas": "Test",
+    "Beacon / Hiring": "Test",
     "General Tutoring": "Administration",
     "Rooms": "Administration",
     "ARC Home": "Campus",
@@ -142,8 +142,19 @@ document.addEventListener("DOMContentLoaded", () => {
         return icon('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>');
     };
 
-    const groupOrder = ["Essentials", "Tutoring", "Beacon Program", "Administration", "Campus", "Other"];
-    const groupLabels = { "Tutoring": "General Tutoring", "Beacon Program": "Beacon" };
+    const groupOrder = [
+    "Essentials",
+    "Tutoring",
+    "Beacon Program",
+    "Test",
+    "Administration",
+    "Campus",
+    "Other"
+];
+    const groupLabels = {
+    "Tutoring": "General Tutoring",
+    "Beacon Program": "Beacon"
+};
     let activeGroup = categoryGroups[activeCategory] || "Essentials";
 
     function buildCategories() {
