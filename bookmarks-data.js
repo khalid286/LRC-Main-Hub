@@ -457,7 +457,7 @@ window.BOOKMARKS = [
   },
   {
     "title": "Search Class Schedule",
-    "url": "https://arc.losrios.edu/academics/search-class-schedules?arcFilter=true&openFilter=true&waitlistFilter=true&strm=1259,Fall%202025&link=true",
+    "url": "https://arc.losrios.edu/academics/search-class-schedules?arcFilter=true&openFilter=true&waitlistFilter=true&strm=1269,Fall%202026&link=true",
     "category": "ARC Home",
     "domain": "arc.losrios.edu"
   },
