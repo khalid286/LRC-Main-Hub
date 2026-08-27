@@ -593,5 +593,29 @@ window.BOOKMARKS = [
     "url": "https://docs.google.com/spreadsheets/d/1rs47WmEuYmsq0D_AwCvfE6UKhs464M1kqJiFuuJFSts/edit?gid=494602454#gid=494602454",
     "category": "Beacon / Worksheet/Timesheet",
     "domain": "docs.google.com"
+  },
+  {
+    "title": "Rosters",
+    "url": "https://drive.google.com/drive/u/0/folders/1NQ2lzpXEaLlNZnHlZlkYwefDMuI2yhaj",
+    "category": "Beacon / Rosters/Roster Sheets",
+    "domain": "drive.google.com"
+  },
+  {
+    "title": "Returned Rosters",
+    "url": "https://drive.google.com/drive/folders/1geImG5RvNEI4lb-ox8t3BHFLnvKQEXyk?usp=drive_link",
+    "category": "Beacon / Rosters/Roster Sheets",
+    "domain": "drive.google.com"
+  },
+  {
+    "title": "Emergency Roster",
+    "url": "https://docs.google.com/spreadsheets/d/1_4v51XzMZvqCu_LXZA-DIT7va9ZlnkN8rAWY8egY1D8/edit?usp=drive_link",
+    "category": "Beacon / Rosters/Roster Sheets",
+    "domain": "docs.google.com"
+  },
+  {
+    "title": "Roster List",
+    "url": "https://docs.google.com/spreadsheets/d/1jx9SXknH4ZjtNT1NikueeJ21QKyYO3qCLvcYUcbyvIc/edit?usp=drive_link",
+    "category": "Beacon / Rosters/Roster Sheets",
+    "domain": "docs.google.com"
   }
 ];
