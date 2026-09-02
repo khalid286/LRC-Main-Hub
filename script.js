@@ -82,7 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "ARC Book Store",
     "Campus Hours",
     "HomeBases",
-    "Vending Machines"
+    "Vending Machines",
+    "section"
 ];
 
     const categoryGroups = {
@@ -107,7 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "HomeBases": "Campus",
     "Vending Machines": "Campus",
     "Staff Contact Info": "Administration",
-    "Beacon / Rosters/Roster Sheets": "Beacon Program"
+    "Beacon / Rosters/Roster Sheets": "Beacon Program",
+    "section": "section"
 };
 
     const counts = resources.reduce((map, item) => {
@@ -150,6 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Beacon Program",
     "Administration",
     "Campus",
+    "section",
     "Other"
 ];
     const groupLabels = {
