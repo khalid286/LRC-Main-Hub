@@ -229,10 +229,44 @@ primaryNavigation
 
     function filteredResources() {
         const terms = query.toLocaleLowerCase().split(/\s+/).filter(Boolean);
-        return resources.filter(item => {
+        
+        let allResources = resources;
+        
+        if (query) {
+            let myLinks = [];
+            try {
+                const stored = JSON.parse(localStorage.getItem("lrc-hub-my-links-v1") || "[]");
+                if (Array.isArray(stored)) {
+                    const existingUrls = new Set(resources.map(r => r.url).filter(Boolean));
+                    myLinks = stored.filter(item => {
+                        if (!item || typeof item.url !== "string" || existingUrls.has(item.url)) return false;
+                        try {
+                            const parsed = new URL(item.url);
+                            return parsed.protocol === "https:" || parsed.protocol === "http:";
+                        } catch {
+                            return false;
+                        }
+                    }).map(item => {
+                        let domain = "";
+                        try { domain = new URL(item.url).hostname.replace(/^www\./, ""); } catch {}
+                        return {
+                            title: String(item.title || ""),
+                            url: item.url,
+                            category: "My Links",
+                            domain: domain
+                        };
+                    });
+                }
+            } catch {
+                // Ignore parsing errors
+            }
+            allResources = [...resources, ...myLinks];
+        }
+
+        return allResources.filter(item => {
             const categoryMatch = Boolean(query)
                 || (activeCategory === "Favorites" ? favorites.has(favoriteKey(item)) : item.category === activeCategory);
-            const haystack = `${item.title} ${item.domain} ${item.category}`.toLocaleLowerCase();
+            const haystack = `${item.title} ${item.domain || ""} ${item.category}`.toLocaleLowerCase();
             return categoryMatch && terms.every(term => haystack.includes(term));
         });
     }
